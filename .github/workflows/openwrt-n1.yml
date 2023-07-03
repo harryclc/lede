@@ -460,7 +460,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: OpenWrt_rootfs
-          path: ./bin/targets/armvirt/64/openwrt-armvirt-64-default-rootfs.tar.gz
+          path: ./bin/targets/armvirt/64/openwrt-armvirt-64-generic-rootfs.tar.gz
   
       - name: Upload firmware
         uses: actions/upload-artifact@v3
