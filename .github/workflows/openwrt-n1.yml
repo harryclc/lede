@@ -280,7 +280,7 @@ jobs:
           CONFIG_PACKAGE_luasocket=y
           # CONFIG_PACKAGE_luci-app-accesscontrol is not set
           CONFIG_PACKAGE_luci-app-amlogic=y
-          CONFIG_PACKAGE_luci-app-argonne-config=y
+          CONFIG_PACKAGE_luci-app-argone-config=y
           CONFIG_PACKAGE_luci-app-cifs-mount=y
           CONFIG_PACKAGE_luci-app-diskman=y
           CONFIG_PACKAGE_luci-app-dockerman=y
@@ -296,7 +296,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-zerotier=y
           CONFIG_PACKAGE_luci-compat=y
           CONFIG_PACKAGE_luci-i18n-amlogic-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-argonne-config-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-argone-config-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-cifs-mount-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-diskman-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-dockerman-zh-cn=y
@@ -309,7 +309,7 @@ jobs:
           CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
           CONFIG_PACKAGE_luci-lib-docker=y
           CONFIG_PACKAGE_luci-proto-ipv6=y
-          CONFIG_PACKAGE_luci-theme-argonne=y
+          CONFIG_PACKAGE_luci-theme-argone=y
           CONFIG_PACKAGE_mount-utils=y
           CONFIG_PACKAGE_odhcp6c=y
           CONFIG_PACKAGE_odhcp6c_ext_cer_id=0
