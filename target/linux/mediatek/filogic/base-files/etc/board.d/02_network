@@ -10,7 +10,8 @@ mediatek_setup_interfaces()
 	case $board in
 	asus,tuf-ax4200|\
 	jdcloud,re-cs-05|\
-	netcore,n60)
+	netcore,n60|\
+	ruijie,rg-x60-pro)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" eth1
 		;;
 	bananapi,bpi-r3)
@@ -26,12 +27,16 @@ mediatek_setup_interfaces()
 	glinet,gl-mt3000)
 		ucidef_set_interfaces_lan_wan eth1 eth0
 		;;
-	h3c,magic-nx30-pro)
+	h3c,magic-nx30-pro|\
+	imou,lc-hx3001)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3" eth1
 		;;
 	mediatek,mt7986a-rfb|\
 	mediatek,mt7986b-rfb)
 		ucidef_set_interfaces_lan_wan "lan0 lan1 lan2 lan3" eth1
+		;;
+	mediatek,mt7988a-dsa-10g-spim-snand)
+		ucidef_set_interfaces_lan_wan "lan0 lan1 lan2 lan3" "eth1 eth2"
 		;;
 	glinet,gl-mt6000|\
 	tplink,tl-xdr4288|\
@@ -85,6 +90,11 @@ mediatek_setup_macs()
 		lan_mac=$(macaddr_add "$wan_mac" 1)
 		label_mac=$wan_mac
 		;;
+	imou,lc-hx3001)
+		lan_mac=$(mtd_get_mac_ascii u-boot-env mac)
+		wan_mac=$(macaddr_add "$lan_mac" 2)
+		label_mac=$lan_mac
+		;;
 	jdcloud,re-cs-05)
 		wan_mac=$(mmc_get_mac_binary factory 0x24)
 		lan_mac=$(mmc_get_mac_binary factory 0x2a)
@@ -94,6 +104,11 @@ mediatek_setup_macs()
 		lan_mac=$(mtd_get_mac_ascii factory lanMac)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
 		label_mac=$wan_mac
+		;;
+	ruijie,rg-x60-pro)
+		label_mac=$(mtd_get_mac_ascii product_info ethaddr)
+		wan_mac=$label_mac
+		lan_mac=$(macaddr_add "$label_mac" 1)
 		;;
 	xiaomi,mi-router-wr30u|\
 	xiaomi,mi-router-ax3000t|\
